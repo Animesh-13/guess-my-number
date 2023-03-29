@@ -11,27 +11,27 @@ document.querySelector('.guess').value = '100';
 console.log(document.querySelector('.guess').value);
 
 */
+let highScore = 0;
+let sc = 20;
+const displayMessage = function(message){
+    document.querySelector('.message').textContent = message;
+}
     let secretNumber = Math.trunc(Math.random()*20)+1;
-    let highScore = 0;
-    let sc = 20;
-    const displayMessage = function(message){
-        document.querySelector('.message').textContent = message;
-    }
-    document.querySelector('.number').textContent = secretNumber;
     document.querySelector('.check').addEventListener('click',function(){
         const guess = Number(document.querySelector('.guess').value);
-    console.log(guess);
-    console.log(typeof guess);
-
-    
-    
-    if(!guess){
-        displayMessage('😡 no number!');
-        // document.querySelector('.message').textContent = '😡 no number!';
-    }else if(guess === secretNumber){
-        displayMessage('🍕 Correct number');
-        // document.querySelector('.message').textContent = '🍕 Correct number';
+        console.log(guess);
+        console.log(typeof guess);
         
+        
+        
+        if(!guess){
+            displayMessage('😡 no number!');
+            // document.querySelector('.message').textContent = '😡 no number!';
+        }else if(guess === secretNumber){
+            displayMessage('🍕 Correct number');
+            // document.querySelector('.message').textContent = '🍕 Correct number';
+            
+            document.querySelector('.number').textContent = secretNumber;
         document.querySelector('body').style.backgroundColor = '#60b347'
         document.querySelector('.number').style.width = '30rem';
         if(highScore < sc){
